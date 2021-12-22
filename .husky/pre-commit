@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn commitlint --edit $1
-yarn pretty --staged
+yarn pretty-quick --staged
 yarn test:staged
