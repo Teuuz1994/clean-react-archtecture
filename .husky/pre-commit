@@ -3,4 +3,3 @@
 
 yarn commitlint --edit $1
 yarn pretty-quick --staged
-yarn test:staged
