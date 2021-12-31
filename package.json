@@ -35,5 +35,8 @@
     "test:ci": "yarn test --coverage",
     "pretty": "prettier --write src",
     "lint:fix": "eslint ./src/**/*.ts --fix"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
   }
 }
