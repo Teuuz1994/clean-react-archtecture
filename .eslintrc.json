@@ -7,6 +7,7 @@
   "extends": [
     "airbnb",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
@@ -28,10 +29,15 @@
   "rules": {
     "prettier/prettier": "error",
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-shadow": [
+      "error"
+    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "func-names": "off",
     "class-methods-use-this": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-props-no-spreading": "off",
     "no-unused-vars": "off",
     "max-classes-per-file": "off",
     "no-useless-constructor": "off",
@@ -42,6 +48,15 @@
       "error",
       {
         "typescript": "never"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
       }
     ]
   },
