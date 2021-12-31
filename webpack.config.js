@@ -43,13 +43,17 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: './public',
-    writeToDisk: true,
+    static: {
+      directory: './public',
+    },
+    devMiddleware: {
+      writeToDisk: true,
+    },
     historyApiFallback: true
   },
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM'
   },
-  plugin: [new CleanWebpackPlugin()]
+  plugins: [new CleanWebpackPlugin()]
 }
