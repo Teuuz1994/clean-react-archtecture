@@ -2,7 +2,7 @@ import { Spinner } from '..';
 
 import styles from './styles.scss';
 
-export const FormStatus = () => {
+const FormStatus = () => {
   return (
     <div className={styles.errorWrapp}>
       <Spinner className={styles.spinner} />
@@ -10,3 +10,5 @@ export const FormStatus = () => {
     </div>
   );
 };
+
+export default FormStatus;

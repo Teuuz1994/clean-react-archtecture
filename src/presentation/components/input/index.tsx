@@ -7,7 +7,7 @@ type Props = DetailedHTMLProps<
   HTMLInputElement
 >;
 
-export const Input = (props: Props) => {
+const Input = (props: Props) => {
   return (
     <div className={styles.inputWrapp}>
       <input {...props} />
@@ -15,3 +15,5 @@ export const Input = (props: Props) => {
     </div>
   );
 };
+
+export default Input;

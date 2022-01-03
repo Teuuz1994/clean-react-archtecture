@@ -3,7 +3,7 @@ import styles from './styles.scss';
 
 type Props = HtmlHTMLAttributes<HTMLSpanElement>;
 
-export const Spinner = ({ className, ...rest }: Props) => {
+const Spinner = ({ className, ...rest }: Props) => {
   return (
     <div className={[styles.spinner, className].join(' ')} {...rest}>
       <div />
@@ -13,3 +13,5 @@ export const Spinner = ({ className, ...rest }: Props) => {
     </div>
   );
 };
+
+export default Spinner;
