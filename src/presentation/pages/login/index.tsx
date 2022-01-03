@@ -1,4 +1,9 @@
-import { Spinner, LoginHeader, Footer, Input } from '@/presentation/components';
+import {
+  LoginHeader,
+  Footer,
+  Input,
+  FormStatus,
+} from '@/presentation/components';
 import styles from './style.scss';
 
 const Login = () => {
@@ -13,10 +18,7 @@ const Login = () => {
           Entrar
         </button>
         <span className={styles.link}>Criar conta</span>
-        <div className={styles.errorWrapp}>
-          <Spinner className={styles.spinner} />
-          <span className={styles.error}>Erro</span>
-        </div>
+        <FormStatus />
       </form>
       <Footer />
     </div>
