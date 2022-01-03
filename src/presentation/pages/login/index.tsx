@@ -1,13 +1,10 @@
-import { Spinner, Logo } from '@/presentation/components';
+import { Spinner, LoginHeader, Footer } from '@/presentation/components';
 import styles from './style.scss';
 
 const Login = () => {
   return (
     <div className={styles.login}>
-      <header className={styles.header}>
-        <Logo />
-        <h1>4Dev - Enquetes para Programadores</h1>
-      </header>
+      <LoginHeader />
       <form className={styles.form}>
         <h2>Login</h2>
         <div className={styles.inputWrapp}>
@@ -31,7 +28,7 @@ const Login = () => {
           <span className={styles.error}>Erro</span>
         </div>
       </form>
-      <footer className={styles.footer} />
+      <Footer />
     </div>
   );
 };
