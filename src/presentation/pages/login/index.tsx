@@ -32,7 +32,12 @@ const Login = () => {
             name="password"
             placeholder="Digite sua senha"
           />
-          <button className={styles.submit} type="submit">
+          <button
+            data-testid="submit"
+            className={styles.submit}
+            type="submit"
+            disabled
+          >
             Entrar
           </button>
           <span className={styles.link}>Criar conta</span>
