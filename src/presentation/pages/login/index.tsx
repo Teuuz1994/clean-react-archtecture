@@ -9,15 +9,12 @@ import {
 import Context from '@/presentation/contexts/form';
 import styles from './style.scss';
 
-type State = {
-  isLoading: boolean;
-  errorMessage: string;
-};
-
 const Login = () => {
-  const [state] = useState<State>({
+  const [state] = useState({
     isLoading: false,
     errorMessage: '',
+    emailError: 'Campo obrigatório',
+    passwordError: 'Campo obrigatório',
   });
 
   return (
