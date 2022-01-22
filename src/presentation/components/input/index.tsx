@@ -14,23 +14,38 @@ type Props = DetailedHTMLProps<
 >;
 
 const Input = ({ name, ...rest }: Props) => {
-  const value = useContext(Context);
-  const error = value[`${name}Error`];
+  const { state, setState } = useContext(Context);
+
+  const error = state[`${name}Error`];
+
   const enableEdit = (event: FocusEvent<HTMLInputElement>): void => {
     event.target.readOnly = false;
   };
 
+  const handleChange = (event: FocusEvent<HTMLInputElement>): void => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const getStatus = (): string => {
-    return '⛔';
+    return error ? '⛔' : '✅';
   };
 
   const getTitle = (): string => {
-    return error;
+    return error || 'Tudo certo!';
   };
 
   return (
     <div className={styles.inputWrapp}>
-      <input {...rest} readOnly onFocus={enableEdit} />
+      <input
+        {...rest}
+        data-testid={name}
+        readOnly
+        onFocus={enableEdit}
+        onChange={handleChange}
+      />
       <span
         data-testid={`${name}-status`}
         title={getTitle()}

@@ -5,12 +5,13 @@ import Context from '@/presentation/contexts/form';
 import styles from './styles.scss';
 
 const FormStatus = () => {
-  const { isLoading, errorMessage } = useContext(Context);
+  const { state } = useContext(Context);
+  const { isLoading, mainError } = state;
 
   return (
     <div data-testid="error-wrapp" className={styles.errorWrapp}>
       {isLoading && <Spinner className={styles.spinner} />}
-      {errorMessage && <span className={styles.error}>{errorMessage}</span>}
+      {mainError && <span className={styles.error}>{mainError}</span>}
     </div>
   );
 };

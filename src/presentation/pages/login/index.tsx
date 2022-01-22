@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import {
   LoginHeader,
@@ -8,19 +8,36 @@ import {
 } from '@/presentation/components';
 import Context from '@/presentation/contexts/form';
 import styles from './style.scss';
+import { Validation } from '@/presentation/protocols/validation';
 
-const Login = () => {
-  const [state] = useState({
+type Props = {
+  validation: Validation;
+};
+
+const Login = ({ validation }: Props) => {
+  const [state, setState] = useState({
     isLoading: false,
-    errorMessage: '',
-    emailError: 'Campo obrigatório',
-    passwordError: 'Campo obrigatório',
+    email: '',
+    password: '',
+    emailError: '',
+    passwordError: '',
+    mainError: '',
   });
+
+  const context = useMemo(() => ({ state, setState }), [state]);
+
+  useEffect(() => {
+    setState({
+      ...state,
+      emailError: validation.validate('email', state.email),
+      passwordError: validation.validate('password', state.password),
+    });
+  }, [state.emailError, state.passwordError]);
 
   return (
     <div className={styles.login}>
       <LoginHeader />
-      <Context.Provider value={state}>
+      <Context.Provider value={context}>
         <form className={styles.form}>
           <h2>Login</h2>
           <Input type="email" name="email" placeholder="Digite seu e-mail" />
@@ -33,7 +50,7 @@ const Login = () => {
             data-testid="submit"
             className={styles.submit}
             type="submit"
-            disabled
+            disabled={!!state.emailError || !!state.passwordError}
           >
             Entrar
           </button>
